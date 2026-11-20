@@ -7,7 +7,9 @@ authors = [
     { name = "Innovative Noctis", email = "arshiyaalizade.dev@gmail.com" }
 ]
 requires-python = ">=3.12"
-dependencies = []
+dependencies = [
+    "pytest>=9.2.0",
+]
 
 [project.scripts]
 ledger = "ledger:main"
