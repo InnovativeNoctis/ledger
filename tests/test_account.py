@@ -36,6 +36,14 @@ def test_two_accounts_do_not_share_transactions() -> None:
     assert second.transactions == []
 
 
+def test_two_accounts_do_not_share_transactions_when_spend_is_used() -> None:
+    first = Account("Sam Sepiol", Decimal("50"))
+    second = Account("Sharon Dune", Decimal("20"))
+    first.spend(second, Decimal("20"))
+    assert second.transactions == []
+    assert first.transactions == [Transaction(first.name, second.name, Decimal("20"))]
+
+
 def test_account_rejects_empty_name() -> None:
     with pytest.raises(ValueError):
         Account(name="", balance=Decimal("50"))
