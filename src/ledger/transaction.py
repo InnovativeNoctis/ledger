@@ -8,7 +8,7 @@ class Transaction:
     destination: str
     amount: Decimal
 
-    def __post_init__(self):
+    def __post_init__(self) -> None:
         if not self.source.strip():
             raise ValueError("Source can't be empty.")
         if not self.destination.strip():
